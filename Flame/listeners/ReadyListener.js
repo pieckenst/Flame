@@ -5,6 +5,8 @@ module.exports = class extends FlameListener {
         super('ReadyListener', { event: 'ready' });
     }
     run(client) {
+        client.mongo.connect();
+
         client.user.setActivity('https://github.com/TheFerryn/Flame', { type: 3 });
         return console.log(`${client.user.tag}: Бот был успешно запущен.`);
     }
