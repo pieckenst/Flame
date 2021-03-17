@@ -10,6 +10,6 @@ module.exports = class extends FlameCommand {
         });
     }
     run(message, args) {
-        return message.channel.send(`🏓 Pong! **${message.client.ws.ping}ms**`);
+        return message.reply(`🏓 Pong! **${message.client.ws.ping}ms**`);
     }
 }

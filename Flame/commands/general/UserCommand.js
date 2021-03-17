@@ -54,6 +54,6 @@ module.exports = class extends FlameCommand {
             .setFooter(`ID: ${user.id}`, message.guild.iconURL())
             .setTimestamp()
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 }

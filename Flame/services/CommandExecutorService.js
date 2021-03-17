@@ -13,7 +13,7 @@ class CommandsExecutorService {
         const data = await this.client.database.collection('guilds').findOne({ guildID: this.message.guild?.id });
         if (!this.message.content.startsWith(data.prefix)) return;
 
-        const [cmd, ...args] = this.message.content.slice(this.prefix.length).trim().split(/ +/g);
+        const [cmd, ...args] = this.message.content.slice(data.prefix.length).trim().split(/ +/g);
         const command = this.client.commands.get(cmd);
 
         if (cooldown.has(this.message.author.id) && cooldown.get(this.message.author.id) == command?.name) return this.message.react('⏱️').catch();
