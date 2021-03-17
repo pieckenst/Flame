@@ -1,4 +1,4 @@
-const FlameCommand = require('../structures/FlameCommand');
+const FlameCommand = require('../../structures/FlameCommand');
 
 module.exports = class extends FlameCommand {
     constructor() {
