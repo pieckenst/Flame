@@ -5,6 +5,7 @@ class UserCommand extends FlameCommand {
     constructor() {
         super('user', {
             description: 'Возвращает информацию о пользователе.',
+            category: 'general',
             usage: 'user [@Пользователь/ID]',
             cooldown: 3,
             aliases: ['userinfo', 'user-info'],
