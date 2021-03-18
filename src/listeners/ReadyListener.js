@@ -1,6 +1,6 @@
 const FlameListener = require('../structures/FlameListener');
 
-module.exports = class extends FlameListener {
+class ReadyListener extends FlameListener {
     constructor() {
         super('ReadyListener', { event: 'ready' });
     }
@@ -11,3 +11,5 @@ module.exports = class extends FlameListener {
         return console.log(`${client.user.tag}: Бот был успешно запущен.`);
     }
 }
+
+module.exports = ReadyListener;
