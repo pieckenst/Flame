@@ -1,7 +1,7 @@
 const FlameCommand = require('../../structures/FlameCommand');
 const { MessageEmbed } = require('discord.js');
 
-module.exports = class extends FlameCommand {
+class UserCommand extends FlameCommand {
     constructor() {
         super('user', {
             description: 'Возвращает информацию о пользователе.',
@@ -57,3 +57,5 @@ module.exports = class extends FlameCommand {
         return message.reply(embed);
     }
 }
+
+module.exports = UserCommand;

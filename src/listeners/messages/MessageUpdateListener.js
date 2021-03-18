@@ -1,7 +1,7 @@
 const FlameListener = require('../../structures/FlameListener');
 const CommandsExecutorService = require('../../services/CommandExecutorService');
 
-module.exports = class extends FlameListener {
+class MessageUpdateListener extends FlameListener {
     constructor() {
         super('MessageUpdateListener', { event: 'messageUpdate' });
     }
@@ -11,3 +11,5 @@ module.exports = class extends FlameListener {
         return executor.runCommand();
     }
 }
+
+module.exports = MessageUpdateListener;

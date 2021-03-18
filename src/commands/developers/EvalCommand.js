@@ -1,7 +1,7 @@
 const FlameCommand = require('../../structures/FlameCommand');
 const Discord = require('discord.js');
 
-module.exports = class extends FlameCommand {
+class EvalCommand extends FlameCommand {
     constructor() {
         super('eval', {
             description: 'Команда, которая может выполнять код… а ты что думал?',
@@ -49,3 +49,5 @@ module.exports = class extends FlameCommand {
         }
     }
 }
+
+module.exports = EvalCommand;

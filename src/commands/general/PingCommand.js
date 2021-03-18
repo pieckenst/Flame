@@ -1,6 +1,6 @@
 const FlameCommand = require('../../structures/FlameCommand');
 
-module.exports = class extends FlameCommand {
+class PingCommand extends FlameCommand {
     constructor() {
         super('ping', {
             description: 'Возвразщает задержку бота.',
@@ -13,3 +13,5 @@ module.exports = class extends FlameCommand {
         return message.reply(`🏓 Pong! **${message.client.ws.ping}ms**`);
     }
 }
+
+module.exports = PingCommand;
