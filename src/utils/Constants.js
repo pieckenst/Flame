@@ -1,6 +1,3 @@
-const getHelp = (message, command) => {
-    return message.client.commands.get('help').run(message, [command]);
-}
 const permissions = {
     ADMINISTRATOR: 'Администратор',
     VIEW_AUDIT_LOG: 'Просматривать журнал аудита',
