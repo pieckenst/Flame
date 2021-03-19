@@ -1,5 +1,5 @@
 const FlameCommand = require('../../structures/FlameCommand');
-const utils = require('../../utils/utils');
+const { getHelp } = require('../../utils/Functions');
 
 class EmbedCommand extends FlameCommand {
     constructor() {
@@ -13,7 +13,7 @@ class EmbedCommand extends FlameCommand {
         });
     }
     run (message, args) {
-        if (!args.join(' ')) return utils.getHelp(message, this.name);
+        if (!args.join(' ')) return getHelp(message, this.name);
 
         try {
             message.delete();

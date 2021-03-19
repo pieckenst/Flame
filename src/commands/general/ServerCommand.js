@@ -1,6 +1,6 @@
 const FlameCommand = require('../../structures/FlameCommand');
 const { MessageEmbed } = require('discord.js');
-const utils = require('../../utils/utils');
+const { regions, verifyLevels } = require('../../utils/Constants');
 
 class ServerCommand extends FlameCommand {
     constructor() {
@@ -35,9 +35,9 @@ class ServerCommand extends FlameCommand {
             true
         )
         .addField(`Каналы [${message.guild.channels.cache.size}]:`, `<:textchannel:814927097453608972> Текстовых: **${message.guild.channels.cache.filter(x => x.type === 'text').size}**\n<:voicechannel:814927126498246658> Голосовых: **${message.guild.channels.cache.filter(x => x.type === 'voice').size}**`, true)
-        .addField('Регион', utils.regions[message.guild.region], true)
+        .addField('Регион', regions[message.guild.region], true)
         .addField('Владелец', `${message.guild.owner.user.tag} (${message.guild.owner.id})`, true)
-        .addField('Уровень проверки', utils.verifyLevels[message.guild.verificationLevel], true)
+        .addField('Уровень проверки', verifyLevels[message.guild.verificationLevel], true)
         .addField('Создан', new Date(message.guild.createdAt).toISOString().replace('T', ' ').substr(0, 19), true)
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
         .setFooter(message.guild.name, message.guild.iconURL())

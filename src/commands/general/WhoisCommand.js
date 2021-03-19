@@ -1,6 +1,6 @@
 const FlameCommand = require('../../structures/FlameCommand');
 const { MessageEmbed } = require('discord.js');
-const utils = require('../../utils/utils');
+const { getHelp } = require('../../utils/Functions');
 const fetch = require('node-fetch');
 
 class WhoisCommand extends FlameCommand {
@@ -14,7 +14,7 @@ class WhoisCommand extends FlameCommand {
     }
     run(message, args) {
 
-        if (!args[0]) return utils.getHelp(message, this.name);
+        if (!args[0]) return getHelp(message, this.name);
         try {
             fetch(`http://ip-api.com/json/${encodeURIComponent(args[0])}`).then((r) => r.json())
                 .then((res) => {

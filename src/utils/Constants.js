@@ -60,7 +60,6 @@ const verifyLevels = {
 }
 
 module.exports = {
-    getHelp,
     permissions,
     regions,
     verifyLevels
