@@ -1,7 +1,7 @@
 {
   "name": "flame",
   "version": "5.0.0",
-  "main": "src/index.js",
+  "main": "src/shard.js",
   "repository": "https://github.com/TheFerryn/Flame",
   "author": "TheFerryn",
   "license": "MIT",
