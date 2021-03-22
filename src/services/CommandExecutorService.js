@@ -19,7 +19,8 @@ class CommandsExecutorService {
 
         if (cooldown.has(this.message.author.id) && cooldown.get(this.message.author.id) == command?.name) return this.message.react('⏱️').catch();
         if (command) {
-            if (command.userPermissions.length > 0 && command.userPermissions.some((permission) => !this.message.member.permissions.has(permission))) return this.message.reply(`У вас недостаточно прав для выполнения данного действия. Необходимые права: ${command.userPermissions.map((r) => `\`${permissions[r]}\``).join(', ')} :no_entry:`)
+            if (command.clientPermissions.length > 0 && command.clientPermissions.some((permission) => !this.message.guild.me.permissions.has(permission))) return this.message.reply(`У меня недостаточно прав для выполнения данного действия. Необходимые права: ${command.clientPermissions.map((r) => `\`${permissions[r]}\``).join(', ')} :no_entry:`);
+            if (command.userPermissions.length > 0 && command.userPermissions.some((permission) => !this.message.member.permissions.has(permission))) return this.message.reply(`У вас недостаточно прав для выполнения данного действия. Необходимые права: ${command.userPermissions.map((r) => `\`${permissions[r]}\``).join(', ')} :no_entry:`);
             try {
                 command.run(this.message, args);
             } catch (e) {

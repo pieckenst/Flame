@@ -6,7 +6,9 @@ class GuildCreateListener extends FlameListener {
         super('GuildCreateListener', { event: 'guildCreate' });
     }
     run(client, guild) {
-        return client.database.collection('guilds').updateOne({ guildID: guild.id }, { '$set': GuildSchema }, { upsert: true });
+        const data = client.database.collection('guilds').findOne({ guildID: guild.id });
+        
+        if (!data) return client.database.collection('guilds').updateOne({ guildID: guild.id }, { '$set': GuildSchema }, { upsert: true });
     }
 }
 

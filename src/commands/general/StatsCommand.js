@@ -26,12 +26,14 @@ class StatsCommand extends FlameCommand {
                     return message.reply(
                         new Discord.MessageEmbed()
                         .setAuthor(`${message.client.user.username}: Статистика бота`, message.client.user.avatarURL())
+                        .setThumbnail(message.client.user.avatarURL())
                         .setColor('ffa500')
                         .addField(
                             'Основное',
                             `**Серверов:** ${format(res[0].reduce((a, b) => a + b, 0))}\n**Пользователей:** ${format(res[1].reduce((a, b) => a + b, 0))}\n**Каналов:** ${format(res[2].reduce((a, b) => a + b, 0))}\n**Эмодзи:** ${format(res[3].reduce((a, b) => a + b, 0))}`,
                             true
                         )
+                        .addField('⠀', '⠀', true)
                         .addField(
                             'Зависимости',
                             `**Node.js:** ${process.version}\n**Discord.js**: v${Discord.version}\n**MongoDB:** v${require('../../../package.json').dependencies['mongodb'].replace('^', '')}`,
@@ -40,6 +42,12 @@ class StatsCommand extends FlameCommand {
                         .addField(
                             'Остальное',
                             `**WebSocket:** ${message.client.ws.ping}ms\n**Discord API:** ${Date.now() - message.createdTimestamp}ms\n**Запущен:** ${fromNow(message.client.readyAt)}`,
+                            true
+                        )
+                        .addField('⠀', '⠀', true)
+                        .addField(
+                            'Техническое',
+                            `**Использование ОЗУ:** ${(process.memoryUsage().rss / 1024 ** 2).toFixed()}МБ\n**Количество шардов:** ${message.client.shard?.count}`,
                             true
                         )
                         .setFooter(message.guild.name, message.guild.iconURL())

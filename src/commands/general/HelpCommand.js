@@ -12,7 +12,7 @@ class HelpCommand extends FlameCommand {
         });
     }
     async run(message, args) {
-        const categories = { general: 'Основное' };
+        const categories = { general: 'Основное', moderation: 'Модерация' };
         const data = await message.client.database.collection('guilds').findOne({ guildID: message.guild.id });
 
 
