@@ -20,7 +20,7 @@ class MuteCommand extends FlameCommand {
         const time = args[1];
 
         if (!user) return getHelp(message, this.name);
-        if (user.permissions.has('MANAGE_ROLES') || user.roles.highest.position > message.member.roles.highest.position) message.reply('Вы не можете замьютить данного пользователя, потому что у него имеется роль выше вашей/он имеет равные вам права :no_entry:');
+        if (user.permissions.has('MANAGE_ROLES') || user.roles.highest.position > message.member.roles.highest.position) return message.reply('Вы не можете замьютить данного пользователя, потому что у него имеется роль выше вашей/он имеет равные вам права :no_entry:');
 
         const guild = await message.client.database.collection('guilds').findOne({ guildID: message.guild.id });
 

@@ -7,7 +7,6 @@ class ReadyListener extends FlameListener {
     }
     async run(client) {
         await client.mongo.connect();
-        client.user.setActivity('https://github.com/TheFerryn/Flame', { type: 3 });
 
         /**
          * Подгрузка всех мьютов, напоминаний и кулдаунов после перезапуска бота.
@@ -16,7 +15,7 @@ class ReadyListener extends FlameListener {
         const mutes = await client.database.collection('mutes').find().toArray();
         mutes.forEach((mute) => new MuteService(client).handle(mute));
 
-        return console.log(`${client.user.tag}: Бот был успешно запущен.`);
+        return client.user.setActivity('https://github.com/TheFerryn/Flame', { type: 3 });
     }
 }
 

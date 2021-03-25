@@ -6,6 +6,7 @@ class MessageUpdateListener extends FlameListener {
         super('MessageUpdateListener', { event: 'messageUpdate' });
     }
     run(client, oldMessage, newMessage) {
+        if (oldMessage.content === newMessage.content) return;
 
         const executor = new CommandsExecutorService(newMessage, client);
         return executor.runCommand();

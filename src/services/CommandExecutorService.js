@@ -12,7 +12,7 @@ class CommandsExecutorService {
         if (this.message.channel.type === 'dm' || !this.message.guild) return;
 
         const data = await this.client.database.collection('guilds').findOne({ guildID: this.message.guild?.id });
-        if (!this.message.content.startsWith(data.prefix)) return;
+        if (!this.message.content.startsWith(data?.prefix)) return;
 
         const [cmd, ...args] = this.message.content.slice(data.prefix.length).trim().split(/ +/g);
         const command = this.client.commands.get(cmd);
