@@ -5,8 +5,8 @@ class MuteService {
     get mutes() {
         return this.client.database.collection('mutes').countDocuments();
     }
-    find(filer) {
-        return this.client.database.collection('mutes').findOne(filer);
+    find(filter) {
+        return this.client.database.collection('mutes').findOne(filter);
     }
     delete(filter) {
         return this.client.database.collection('mutes').deleteOne(filter);
